@@ -1,0 +1,61 @@
+:host .yearselbutton lightning-button-icon{
+    --sds-c-button--icon-size: 1rem; 
+}
+
+
+:host .dayrecordactivewidthinactive{
+    
+    --slds-c-button-brand-text-color: white !important;
+    
+    --slds-c-button-brand-color-background: rgb(162, 160, 170) !important;
+    --slds-c-button-radius-border: 50% !important;
+    --slds-c-button-line-height: 39px !important;
+    
+    --slds-c-button-sizing-border: 0px !important;
+    
+    --slds-c-button-brand-color-background-hover: rgb(238, 233, 233) !important;
+    --slds-c-button-brand-text-color-hover: black !important;
+    /* --slds-c-button-brand-spacing-inline-start: 16px !important;
+    --slds-c-button-brand-spacing-inline-end: 16px !important; */
+}
+
+:host .dayrecordinactivewidthinactive{
+    --slds-c-button-brand-text-color: black !important;
+    --slds-c-button-brand-color-background: white !important;
+    --slds-c-button-radius-border: 50% !important;
+    --slds-c-button-line-height: 39px !important;
+    
+    --slds-c-button-sizing-border: 0px !important;
+    
+    --slds-c-button-brand-color-background-hover: rgb(238, 233, 233) !important;
+    --slds-c-button-brand-text-color-hover: black !important;
+}
+
+
+:host .dayrecordactivewidthactive{
+    --slds-c-button-brand-text-color: white !important;
+    
+    --slds-c-button-brand-color-background: rgb(162, 160, 170) !important;
+    --slds-c-button-radius-border: 50% !important;
+    --slds-c-button-line-height: 39px !important;
+    
+    --slds-c-button-sizing-border: 0px !important;
+    
+    --slds-c-button-brand-color-background-hover: rgb(238, 233, 233) !important;
+    --slds-c-button-brand-text-color-hover: black !important;
+    --slds-c-button-brand-spacing-inline-start: 13px !important;
+    --slds-c-button-brand-spacing-inline-end: 13px !important;
+}
+:host .dayrecordinactivewidthactive{
+    --slds-c-button-brand-text-color: black !important;
+    --slds-c-button-brand-color-background: white !important;
+    --slds-c-button-radius-border: 50% !important;
+    --slds-c-button-line-height: 39px !important;
+    
+    --slds-c-button-sizing-border: 0px !important;
+    
+    --slds-c-button-brand-color-background-hover: rgb(238, 233, 233) !important;
+    --slds-c-button-brand-text-color-hover: black !important;
+    --slds-c-button-brand-spacing-inline-start: 13px !important;
+    --slds-c-button-brand-spacing-inline-end: 13px !important;
+}

@@ -1,0 +1,22 @@
+<template>
+    <lightning-modal-header label={labelheader}></lightning-modal-header>
+    <lightning-modal-body>
+        
+        <template for:each={content} for:item="info">
+            <div key={info.Id}>
+                <div class="slds-var-m-top_x-small slds-grid">
+                    <lightning-icon icon-name={info.Icon} size="small" alternative-text={info.Name} title={info.Name}></lightning-icon>
+                    <h5 class="slds-m-left--x-small" title={info.Fieldtodisplay}>
+                        <a onclick={redirectinglink} data-id={info.Id} data-objectapi={info.ObjectApiName} id={info.Id}>
+                            {info.Fieldtodisplay}
+                        </a>
+                    </h5>
+                    
+                </div>
+            </div>
+        </template>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button label="Close" onclick={handleOkay}></lightning-button>
+    </lightning-modal-footer>
+</template>

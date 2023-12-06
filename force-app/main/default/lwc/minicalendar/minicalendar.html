@@ -1,0 +1,70 @@
+<template>
+    <lightning-card>
+        <lightning-accordion class="example-accordion" allow-multiple-sections-open active-section-name=[]>
+            <template for:each={recs} for:item="rec">
+                <lightning-accordion-section key={rec.Name} name={rec.Name} label={rec.Name}>
+                    <lightning-tabset key={rec.Name} variant="scoped">
+                        <template for:each={rec.year_recs} for:item="year_recs">
+                            <lightning-tab key={year_recs.year} label={year_recs.year}>
+                                <lightning-tabset key={year_recs.year} variant="scoped">
+                                    <template for:each={year_recs.month_recs} for:item="month_recs">
+                                        <!-- <lightning-tab key={month_recs.pKey} label={month_recs.monthName}>  -->
+                                                <div key={month_recs.pKey} class="slds-var-p-around_x-small">                                           
+                                                    <div class="header">
+                                                        <button data-monthkey={month_recs.pKey} data-direction="prev" onclick={handleMonthNavigation}>&lt;</button>
+                                                        <h2>{month_recs.monthName} {month_recs.displayedYear}</h2>
+                                                        <button data-monthkey={month_recs.pKey} data-direction="next" onclick={handleMonthNavigation}>&gt;</button>
+                                                    </div>
+                                                                                   
+                                             
+                                        <!-- <lightning-tab key={month_recs.month} label={month_recs.monthName}> -->
+                                            <lightning-card>                    
+                                                <div class="slds-var-p-around_x-small">
+                                                    <div class="slds-grid slds-gutters">
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Su</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Mo</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Tu</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>We</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Th</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Fr</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Sa</b></span>
+                                                        </div>
+        
+                                                    </div>
+                                                    <template for:each={month_recs.week_recs} for:item="week_recs">
+                                                        <div key={week_recs.pKey} class="slds-grid slds-gutters">
+                                                            <template for:each={week_recs.day_recs} for:item="day_recs">                                                                
+                                                                <div key={day_recs.pKey} class=" slds-col slds-size_1-of-7">
+                                                                   <h3> {day_recs.day}</h3>
+                                                                </div>
+                                                            </template>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </lightning-card>                                   
+                                         </div>
+                                        <!-- </lightning-tab> -->
+                                    </template>
+                                </lightning-tabset>
+                            </lightning-tab>
+                        </template>
+                    </lightning-tabset>
+                </lightning-accordion-section>
+            </template>
+            
+        </lightning-accordion>
+    </lightning-card>
+</template>

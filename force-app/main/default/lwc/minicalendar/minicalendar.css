@@ -1,0 +1,13 @@
+.slds-modal__content {
+    overflow-y: scroll !important;
+    height: 300px !important;
+}
+:host .buttonTextColor{
+    --sds-c-button-text-color:black;
+}
+
+:host .myTabinactive{
+    --slds-c-tabs-item-color-border-active: rgb(71, 20, 20);
+    --slds-c-tabs-item-color-border-hover: rgb(71, 20, 20);
+
+}

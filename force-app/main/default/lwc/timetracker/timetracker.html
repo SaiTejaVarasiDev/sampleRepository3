@@ -1,0 +1,136 @@
+<template>
+    <lightning-card>
+        
+        <h2 slot="title"><lightning-icon icon-name="utility:event" class="slds-m-right_medium" size="medium"></lightning-icon>
+            Time Tracker for Project
+        </h2>
+        
+        <lightning-button-icon title="Refresh" icon-name="utility:refresh" slot="actions" onclick={handleRefresh} class="slds-float_right slds-m-left_x-small">
+        </lightning-button-icon>
+            <template for:each={recs} for:item="rec">
+                
+                <div key={rec.Id}>
+                    <div class="slds-grid slds-wrap slds-align_absolute-center slds-m-bottom_small">
+                        <div class="slds-col slds-size_1-of-8"><b>Select Year</b></div>
+                        <div class="slds-col slds-size_2-of-8"><lightning-combobox class="combobox" style="width: 50% !important" variant="label-hidden" label="Select Year" name="Year" value={value} options={rec.year_recs} onchange={handledropdown} placeholder={selyearvalue}></lightning-combobox></div>
+                        
+                    </div>
+                    
+                    
+                    
+                                <lightning-tabset variant="scoped">
+                                    <template for:each={selyear} for:item="month_recs">
+                                        
+                                        <lightning-tab key={month_recs.pKey} label={month_recs.monthName}>
+                                            <lightning-card>
+                                                
+                                                <div class="slds-var-p-around_x-small">
+                                                    <div class="slds-grid slds-gutters">
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Sun</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Mon</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Tues</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Wed</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Thur</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Fri</b></span>
+                                                        </div>
+                                                        <div class="slds-col slds-size_1-of-7 slds-align_absolute-center">
+                                                            <span><b>Sat</b></span>
+                                                        </div>
+        
+                                                    </div>
+                                                    <template for:each={month_recs.week_recs} for:item="week_recs">
+                                                        
+                                                        <div key={week_recs.pKey} class="slds-grid slds-gutters">
+                                                            <template for:each={week_recs.day_recs} for:item="day_recs">
+                                                                
+                                                                <div key={day_recs.pKey} class="slds-border_left slds-border_right slds-col slds-size_1-of-7">
+                                                                    <div class={day_recs.Display}>
+                                                                       
+                                                                        <lightning-tabset variant="standard">
+                                                                            <template if:true={day_recs.Display}>
+                                                                            <lightning-tab label={day_recs.day} class="slds-m-top_none slds-p-bottom_none slds-p-top_xxx-small">
+                                                                                
+                                                                                <div class="slds-grid slds-gutters">
+                                                                                    
+                                                                                        <div class="slds-col slds-size_7-of-7" style="height: 90px;"> <!-------slds-scrollable_y---------->
+                                                                                            <template if:true={day_recs.sizeboolean}>
+                                                                                                <template for:each={day_recs.dayList} for:item="CalendarRecord">
+                                                                                                
+                                                                                                    <template if:true={CalendarRecord.indexboolean}>
+                                                                                                        <div key={CalendarRecord.Id} style="width:100px">
+                                                                                                            <div class="slds-var-m-top_x-small slds-grid">
+                                                                                                                <lightning-icon icon-name={CalendarRecord.Icon} size="x-small" alternative-text={CalendarRecord.Name} title={CalendarRecord.Name}></lightning-icon>
+                                                                                                                <h5 class="slds-truncate slds-m-left--x-small" title={CalendarRecord.Fieldtodisplay}>
+                                                                                                                    <a onclick={redirectlink} data-id={CalendarRecord.Id} data-objectapi={CalendarRecord.ObjectApiName} id={CalendarRecord.Id}>
+                                                                                                                        {CalendarRecord.Fieldtodisplay}
+                                                                                                                    </a>
+                                                                                                                </h5>
+                                                                                                                
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </template>
+                                                                                                    
+                                                                                                </template>
+                                                                                            </template>
+                                                                                            
+                                                                                            <template if:false={day_recs.sizeboolean}>
+                                                                                                <template for:each={day_recs.dayList} for:item="CalendarRecord">
+                                                                                                
+                                                                                                    <template if:true={CalendarRecord.indexboolean}>
+                                                                                                        <div key={CalendarRecord.Id} style="width:100px">
+                                                                                                            <div class="slds-var-m-top_x-small slds-grid">
+                                                                                                                <lightning-icon icon-name={CalendarRecord.Icon} size="x-small" alternative-text={CalendarRecord.Name} title={CalendarRecord.Name}></lightning-icon>
+                                                                                                                <h5 class="slds-truncate slds-m-left--x-small" title={CalendarRecord.Fieldtodisplay}>
+                                                                                                                    <a onclick={redirectlink} data-id={CalendarRecord.Id} data-objectapi={CalendarRecord.ObjectApiName} id={CalendarRecord.Id}>
+                                                                                                                        {CalendarRecord.Fieldtodisplay}
+                                                                                                                    </a>
+                                                                                                                </h5>
+                                                                                                                
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </template>
+                                                                                                    
+                                                                                                </template>
+                                                                                                <div class="slds-var-m-top_x-small">
+                                                                                                    <lightning-button class="slds-m-left--x-small" label="View all" onclick={handleShowModal} data-id={day_recs.Recdate} data-day={day_recs.day} data-month={month_recs.month} data-year={selyearvalue} data-value={day_recs.dayList} id={day_recs.Recdate}></lightning-button>
+                                                                                                    <!--modal-->
+                                                                                                    
+                                                                                                </div>
+                                                                                            </template>
+                                                                                            
+                                                                                            
+                                                                                        </div>
+                                                                                    
+                                                                                </div>
+                                                                            </lightning-tab>
+                                                                        </template>
+                                                                        </lightning-tabset>
+                                                                    
+                                                                    </div>
+                                                                </div>
+                                                            </template>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </lightning-card>
+                                        </lightning-tab>
+                                    </template>
+                                </lightning-tabset>
+                            
+                    
+                </div>
+            </template>
+            
+    </lightning-card>
+</template>
