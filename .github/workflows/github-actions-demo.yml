@@ -28,5 +28,5 @@ jobs:
       #Authenticate Salesforce ORG
       - name: Authenticate Salesforce ORG
         run: |
-          sfdx force:auth:jwt:grant --clientid "${{ secrets.SF_CICD_CONSUMERKEY }}" --jwtkeyfile D:\jdoe\JWT\server.key --username "${{ secrets.SF_CICD_USERNAME }}" --instanceurl https://login.salesforce.com
+          sfdx force:auth:jwt:grant --clientid "${{ secrets.SF_CICD_CONSUMERKEY }}" --jwtkeyfile server.key --username "${{ secrets.SF_CICD_USERNAME }}" --instanceurl https://login.salesforce.com
 
