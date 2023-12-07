@@ -29,4 +29,8 @@ jobs:
       - name: Authenticate Salesforce ORG
         run: |
           sfdx force:auth:jwt:grant --clientid "${{ secrets.SF_CICD_CONSUMERKEY }}" --jwtkeyfile server.key --username "${{ secrets.SF_CICD_USERNAME }}" --instanceurl https://login.salesforce.com
+      #Validate source code against the org
+      - name: Validae Source Code Against Salesforce ORG
+        run: |
+          sfdx force:source:deploy -p force-app -c -u "${{ secrets.SF_CICD_USERNAME }}"
 
