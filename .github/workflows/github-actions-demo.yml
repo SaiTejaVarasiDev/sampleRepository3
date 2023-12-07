@@ -18,3 +18,15 @@ jobs:
         run: |
           npm install sfdx-cli --global
           sfdx force --help
+      # We need to use a key value stored as GitHub secret and 
+      # create a .key file since 'sf org login jwt' command expects a path 
+      # to .key file as a parameter
+      - name: Create server key file
+        run: |
+          touch server.key
+          echo -e ${{ secrets.SF_CICD_SERVERKEY }} >> server.key
+      #Authenticate Salesforce ORG
+      - name: Authenticate Salesforce ORG
+        run: |
+          sfdx force:auth:jwt:grant --clientid ${{ secrets.SF_CLIENT_SECRET }} --jwtkeyfile D:\jdoe\JWT\server.key --username ${{ secrets.SF_CICD_USERNAME }} --instanceurl https://login.salesforce.com
+
