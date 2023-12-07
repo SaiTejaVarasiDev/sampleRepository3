@@ -24,7 +24,7 @@ jobs:
       - name: Create server key file
         run: |
           touch server.key
-          echo -e ${{ secrets.SF_CICD_SERVERKEY }} >> server.key
+          echo -e "${{ secrets.SF_CICD_SERVERKEY }}" >> server.key
       #Authenticate Salesforce ORG
       - name: Authenticate Salesforce ORG
         run: |
