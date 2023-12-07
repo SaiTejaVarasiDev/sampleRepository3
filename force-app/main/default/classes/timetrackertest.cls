@@ -40,6 +40,7 @@ public class timetrackertest {
             AuraHandledException e =  new AuraHandledException('Error Enforcing security:'+exp.getMessage());
             throw e;
         }
+
         List<timetrackerhelper.CalendarView> result = timetrackerhelper.getCalendarRecs(acc.Id);
         Integer countOfRecords = 0;
         for(timetrackerhelper.yearrecs yr : result[0].year_recs){
