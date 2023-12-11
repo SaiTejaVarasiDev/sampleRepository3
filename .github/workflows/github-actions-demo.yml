@@ -33,5 +33,5 @@ jobs:
       #Validate source code against the org
       - name: Validae Source Code Against Salesforce ORG
         run: |
-          sfdx force:source:deploy -p force-app -c -u "${{ secrets.SF_CICD_USERNAME }}"
+          sfdx force:source:deploy -p force-app -u "${{ secrets.SF_CICD_USERNAME }}"
 
